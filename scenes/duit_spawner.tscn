@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://sr1f71yem3iy"]
+
+[ext_resource type="Script" path="res://scripts/duit_spawner.gd" id="1_2j54c"]
+[ext_resource type="PackedScene" uid="uid://h8o42dktyuvw" path="res://scenes/falling_duit.tscn" id="2_5rkue"]
+
+[node name="DuitSpawner" type="Node2D"]
+script = ExtResource("1_2j54c")
+falling_object_scene = ExtResource("2_5rkue")

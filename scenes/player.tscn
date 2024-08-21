@@ -1,0 +1,77 @@
+[gd_scene load_steps=11 format=3 uid="uid://bo0u2r4831qnv"]
+
+[ext_resource type="Script" path="res://scripts/player.gd" id="1_v4xaw"]
+[ext_resource type="Texture2D" uid="uid://ck3hdfubm1db6" path="res://assets/Characters/Basic Charakter Spritesheet.png" id="2_kgqkr"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dg3bl"]
+atlas = ExtResource("2_kgqkr")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ueg6w"]
+atlas = ExtResource("2_kgqkr")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a20tn"]
+atlas = ExtResource("2_kgqkr")
+region = Rect2(0, 144, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fmnim"]
+atlas = ExtResource("2_kgqkr")
+region = Rect2(48, 144, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l8kfu"]
+atlas = ExtResource("2_kgqkr")
+region = Rect2(96, 144, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bvtai"]
+atlas = ExtResource("2_kgqkr")
+region = Rect2(144, 144, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qfr27"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dg3bl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ueg6w")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a20tn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fmnim")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l8kfu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bvtai")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 8.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_odyls"]
+radius = 5.0
+
+[node name="Player" type="CharacterBody2D"]
+collision_layer = 2
+script = ExtResource("1_v4xaw")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(19, -8)
+sprite_frames = SubResource("SpriteFrames_qfr27")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.65257
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(19, -6)
+shape = SubResource("CircleShape2D_odyls")
